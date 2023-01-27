@@ -1,3 +1,14 @@
+//Reference to important DOM elements
+var currentDayEl = document.getElementById("currentDay")
+
+//Display Current Date
+function displayDate() {
+  var rightNow = dayjs().format('MMM DD, YYYY');
+  currentDayEl.text(rightNow);
+}
+
+
+
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
