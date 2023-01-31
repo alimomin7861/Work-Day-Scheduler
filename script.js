@@ -15,12 +15,12 @@ displayDate();
 // current hour in 24-hour time?
 function timeColor(){
   var currentHour = dayjs().format('H');
-  console.log(currentHour)
+  //console.log(currentHour)
 
   $(".time-block").each(function(){
 
   var blockHour = parseInt($(this).attr("id"));
-  console.log(blockHour)
+  //console.log(blockHour)
 
   // Apply classes from past -> present -> future
   if (blockHour < currentHour) {
@@ -59,30 +59,53 @@ var interval = setInterval(timeColor, 15000);
 // useful when saving the description in local storage?
 $(".saveBtn").click(function(){
   
-  var description = $(this).siblings(".description")
-  var hour = $(this).siblings(".hour")
+  var description = $(this).siblings(".description").val();
+  var hour = $(this).siblings(".hour").text();
 
-  localStorage.setItem(description,hour)
+  // JSON.stringify description & hour into strings
+  // var descriptionString = JSON.stringify(description);
+  // var hourString = JSON.stringify(hour);
 
-  alert("Your input has been saved");
+  localStorage.setItem(hour,description)
+
+  console.log(description);
+  console.log(hour);
+
+  alert("Your input has been saved.");
+
+  /* 
+  1. determine id of the button clicked (of the buttons parent)
+  2. set the text area's value into local storage using the id as the key 
+  3. localstorage.getItem(key) -> assign it to the textarea.innerHTML
+  */
+ 
 });
 
 
 // TODO: Add code to get any user input that was saved in localStorage and set
 // the values of the corresponding textarea elements. HINT: How can the id
 // attribute of each time-block be used to do this?
+function retrieveInput(){
 
+  $(".hour").each(function() {
+    var blockHour = $(this).text();
+    var updatedDescription = localStorage.getItem(blockHour);
 
+    if(updatedDescription !== null) {
+        $(this).siblings(".description").val(updatedDescription);
+    }
+  });
 
+}
+retrieveInput();
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+
+
+
 $(function () {
-
-
-
-
 
 });
 
