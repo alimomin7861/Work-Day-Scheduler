@@ -1,7 +1,7 @@
 # Work Day Scheduler 
 
 # Link to deployed application
-
+https://alimomin7861.github.io/Work-Day-Scheduler/
 
 # Visual Representation
 ![](./assets/images/)
