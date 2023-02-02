@@ -35,7 +35,8 @@ function timeColor(){
   }
 
   // Alternative way of doing it from future -> present -> past
-  // if (blockHour > currentHour) {
+  
+  //if (blockHour > currentHour) {
   //   $(this).addClass("future");
   // } else if (blockHour == currentHour) {
   //   $(this).removeClass("future");
@@ -102,10 +103,7 @@ retrieveInput();
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+// $(function () {
 
-
-
-$(function () {
-
-});
+// });
 
